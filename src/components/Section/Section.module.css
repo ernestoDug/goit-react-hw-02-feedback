@@ -1,0 +1,23 @@
+.feedBackWr {
+  margin: 15px;
+  padding: 0px;
+  width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.list
+{
+  list-style: none;
+  margin-top: 20px;
+  margin: auto;
+}
+
+.wrap
+{
+  display: flex;
+  flex-direction: column;
+align-items: center;  
+  padding: 0;
+}
+

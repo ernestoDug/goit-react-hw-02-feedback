@@ -6,7 +6,7 @@ import React from 'react';
 // // кОмпО
 // import Profile from 'components/Profile/Profile';
 // import Statistics from 'components/Statistics/Statistics';
-import Feedback from 'components/Feedback/Feedback';
+import Section from 'components/Section/Section';
 // import TransactionHistory from 'components/TransactionHistory/TransactionHistory';
 
 
@@ -22,22 +22,8 @@ export const App = () => {
         color: '#010101',
       }}
     >
-<Feedback/>
-
-
-      {/* <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
- 
-      /> */}
-      {/* <Statistics title="Upload stats" stats={data} />
-
-      <FriendList friends={friends} />
-
-      <TransactionHistory items={transactions} /> */}
+<Section title="Ваші враження"/>
+      
     </div>
   );
 };

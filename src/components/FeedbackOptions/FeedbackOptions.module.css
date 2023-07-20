@@ -10,10 +10,8 @@
   justify-content: flex-start;
   align-items: center;
   font-size: 25px;
+  transition: background-color linear .5s;
+  &:hover{
+    background-color: orange;
+  }
 }
-
-/* .BtnG
-{
-  composes: Btn;
-  background-color: blueviolet;
-} */
