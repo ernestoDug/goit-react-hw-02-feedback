@@ -7,8 +7,7 @@ import css from './Notification.module.css';
 // компонент профіля
 export default function Notification({massage}) {
   return (
-         
-          <span className={css.massage}>{massage}</span>
+                   <h4 className={css.massage}>{massage}</h4>
            );
 }
 // // прототайпи
