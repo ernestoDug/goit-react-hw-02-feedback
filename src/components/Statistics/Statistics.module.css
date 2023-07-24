@@ -12,31 +12,27 @@
   font-size: 25px;
 }
 
-.itemTotal{
+.itemTotal {
   composes: item;
   background-color: #e69225;
-
 }
-.itemPers{
+.itemPers {
   composes: item;
   background-color: #7de17b;
   color: #e67c25;
   padding: 15px;
   font-weight: 600;
-
 }
 
-.listSt
-{
+.listSt {
   width: 800px;
   list-style: none;
   margin: auto;
-display: flex; 
-flex-direction: column;
-align-items: center;
-border-radius: 20px/60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px/60px;
 
-background-color: #c5eaab;
+  background-color: #c5eaab;
   box-shadow: inset 0 0 7px 4px rgba(255, 255, 255, 0.5);
-
 }

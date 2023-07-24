@@ -1,10 +1,5 @@
-// import ReactDOM from 'react-dom/client';
-// npm install prop-types;
-
 import React from 'react';
 
-
-// import Profile from 'components/Profile/Profile';
 import Statistics from 'components/Statistics/Statistics';
 
 import { Component } from 'react';
@@ -12,7 +7,6 @@ import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 
 import css from './Section/Section.module.css';
 
-// import Statistics from 'components/Statistics/Statistics';
 import textBtn from 'components/Section/data/textBtn.js';
 
 import Notification from 'components/Notification/Notification';
@@ -62,32 +56,27 @@ class App extends Component {
 
   render() {
     return (
-      <div> 
-      <Section title="Ваші Враження" 
-      />
-            <Section/>
+      <div>
+        <Section title="Ваші Враження" />
+        <Section />
 
-      <Section title="Статистика ваших вражень" 
-      />
-       {/* умова рендеру статистики */}
-       {this.state.good > 0 ||
-          this.state.neutral > 0 ||
-          this.state.bad > 0 ? (
-            <Statistics
-                good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
-          ) : (
-            <Notification massage={'Поки відгуків немає'} />
-          )}
-      <Section/>
+        <Section title="Статистика ваших вражень" />
+        {/* умова рендеру статистики */}
+        {this.state.good > 0 || this.state.neutral > 0 || this.state.bad > 0 ? (
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          <Notification massage={'Поки відгуків немає'} />
+        )}
+        <Section />
 
-      <Section title="" 
-      />
-<div className={css.feedBackWr}>
+        <Section title="" />
+        <div className={css.feedBackWr}>
           {/* добре */}
           <FeedbackOptions
             options={textBtn[0]}
@@ -107,33 +96,10 @@ class App extends Component {
           />
         </div>
 
-            <Section/>
-
-</div>
-    )
+        <Section />
+      </div>
+    );
   }
-            
 }
 
-export  {App};
-
-
-
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         // display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101',
-//       }}
-//     >
-// <Section title="Ваші враження"/>
-      
-//     </div>
-//   );
-// };
+export { App };
