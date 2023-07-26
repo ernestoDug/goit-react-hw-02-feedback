@@ -4,8 +4,9 @@ import css from './Notification.module.css';
 
 // компонент профіля
 export default function Notification({ massage }) {
-  return <h4 className={css.massage}>{massage}</h4>;
+  return <p className={css.massage}> {massage} </p>;
 }
+
 // // прототайпи
 Notification.propTypes = {
   massage: PropTypes.string.isRequired,

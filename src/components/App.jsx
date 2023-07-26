@@ -7,8 +7,6 @@ import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 
 import css from './Section/Section.module.css';
 
-import textBtn from 'components/Section/data/textBtn.js';
-
 import Notification from 'components/Notification/Notification';
 import Section from './Section/Section';
 
@@ -18,31 +16,14 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  // добре
-  handleClickGood = event => {
-    // console.log(this, "1");
-    this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
-  };
-  // нейтрально
-  handleClickNeutr = event => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-  // погано
-  handleClickBad = event => {
-    this.setState(prevState => {
-      this.countTotalFeedback(this.state.bad);
 
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
+  //  //  один змінювач на 3x
+  handleClick = event => {
+    // console.log( event.target)
+    const name = event.target.name;
+    this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
+
   // всього
   countTotalFeedback = () => {
     return `${this.state.good + this.state.bad + this.state.neutral}`;
@@ -57,46 +38,32 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Section title="Ваші Враження" />
-        <Section />
+        <Section title="Ваші Враження"></Section>
 
-        <Section title="Статистика ваших вражень" />
-        {/* умова рендеру статистики */}
-        {this.state.good > 0 || this.state.neutral > 0 || this.state.bad > 0 ? (
-          <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        ) : (
-          <Notification massage={'Поки відгуків немає'} />
-        )}
-        <Section />
+        <Section title="Статистика ваших вражень">
+          {/* умова рендеру статистики */}
+          {this.countTotalFeedback() > 0 ? (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification massage={'Поки відгуків немає'} />
+          )}
+        </Section>
 
-        <Section title="" />
-        <div className={css.feedBackWr}>
-          {/* добре */}
-          <FeedbackOptions
-            options={textBtn[0]}
-            onLeaveFeedback={this.handleClickGood}
-          />
-
-          {/* Сеореднє */}
-          <FeedbackOptions
-            options={textBtn[1]}
-            onLeaveFeedback={this.handleClickNeutr}
-          />
-
-          {/* погано */}
-          <FeedbackOptions
-            options={textBtn[2]}
-            onLeaveFeedback={this.handleClickBad}
-          />
-        </div>
-
-        <Section />
+        <Section>
+          {/* кнопки */}
+          <div className={css.feedBackWr}>
+            <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.handleClick}
+            />
+          </div>
+        </Section>
       </div>
     );
   }
