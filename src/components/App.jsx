@@ -38,9 +38,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Section title="Ваші Враження"></Section>
-
-        <Section title="Статистика ваших вражень">
+        <Section title="Ваші враження">
           {/* умова рендеру статистики */}
           {this.countTotalFeedback() > 0 ? (
             <Statistics
